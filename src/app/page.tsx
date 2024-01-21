@@ -18,7 +18,7 @@ function Root() {
       />
       <button
         className=" bg-red-500 p-3 rounded-md"
-        onClick={() => handleSubmit()}
+        onClick={async () => await handleSubmit()}
       >
         Submit
       </button>
