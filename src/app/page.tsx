@@ -23,16 +23,16 @@ function Root() {
     })();
   }, [readLinkArr, shortUrl]);
   return (
-    <div className="flex flex-col text-center gap-3 p-5 bg-[#032539] text-[#fbf3f2] rounded-lg max-w-md w-full">
+    <div className="flex flex-col text-center gap-3 p-5 bg-[#032539] text-[#fbf3f2] rounded-lg max-w-md w-[90%] ">
       <h1 className="text-4xl ">CapLink</h1>
       <p className=" text-gray-300 mb-2">{`Dev by Geeleed v.${package_json.version}`}</p>
-      <div className=" flex gap-1">
+      <div className=" flex gap-1 w-full">
         <input
           onKeyDown={async (e) => e.key === "Enter" && (await handleSubmit())}
           className="p-3 bg-[#fbf3f2] rounded-md w-[80%] text-[#fa991c] outline-none"
           ref={inputRef}
           type="url"
-          placeholder="Your url"
+          placeholder="Your url that you make short"
         />
         <button
           className={`bg-[#fa991c] p-3 rounded-md hover:bg-[#fa991cdd] w-[20%] min-w-fit`}
@@ -43,7 +43,7 @@ function Root() {
       </div>
 
       {/* <p>{shortUrl}</p> */}
-      <section className=" flex flex-col gap-2 max-h-[60vh] overflow-y-scroll text-left break-words">
+      <section className=" min-w-full gap-2 max-h-[60vh] overflow-y-scroll text-left ">
         {readLinkArr
           .map((item: any, index) => (
             <Item
@@ -75,14 +75,14 @@ const Item = ({ cutFront10, originalUrl, array, setArray, _id }: Item) => {
     setArray(array.filter((item: any) => item["_id"] !== id));
   };
   return (
-    <div className=" flex justify-between p-2 rounded-lg hover:bg-[#1c768f] w-full">
-      <div className=" flex flex-col w-[80%]">
-        <Link href={originalUrl} target="_blank" className=" w-full">
+    <div className=" w-full p-2 flex justify-between rounded-lg hover:bg-[#1c768f]">
+      <div className=" flex flex-col w-[90%]">
+        <Link href={originalUrl} target="_blank" className=" break-words">
           {"CapLink: "}
           {/* {(process.env.SERVER_URL || params.SERVER_URL) + cutFront10} */}
           {location.origin + "/" + cutFront10}
         </Link>
-        <Link href={originalUrl} target="_blank" className=" w-full ">
+        <Link href={originalUrl} target="_blank" className=" break-words">
           {"Original: "}
           {originalUrl}
         </Link>
@@ -90,7 +90,7 @@ const Item = ({ cutFront10, originalUrl, array, setArray, _id }: Item) => {
 
       <button
         onClick={async () => await del(_id)}
-        className=" p-2 text-[#fa991c] hover:scale-125 h-fit"
+        className=" p-2 text-[#fa991c] hover:scale-125"
       >
         X
       </button>
