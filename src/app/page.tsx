@@ -71,8 +71,8 @@ interface Item {
 }
 const Item = ({ cutFront10, originalUrl, array, setArray, _id }: Item) => {
   const del = async (id: string) => {
-    setArray(array.filter((item: any) => item["_id"] !== id));
     await remove(id);
+    setArray(array.filter((item: any) => item["_id"] !== id));
   };
   return (
     <div className=" flex justify-between p-2 rounded-lg hover:bg-[#1c768f] w-full">
