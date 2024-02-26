@@ -75,14 +75,14 @@ const Item = ({ cutFront10, originalUrl, array, setArray, _id }: Item) => {
     await remove(id);
   };
   return (
-    <div className=" flex justify-between p-2 rounded-lg hover:bg-[#1c768f]">
-      <div className=" flex flex-col">
-        <Link href={originalUrl} target="_blank" className="">
+    <div className=" flex justify-between p-2 rounded-lg hover:bg-[#1c768f] w-full">
+      <div className=" flex flex-col w-[80%]">
+        <Link href={originalUrl} target="_blank" className=" w-full">
           {"CapLink: "}
           {/* {(process.env.SERVER_URL || params.SERVER_URL) + cutFront10} */}
           {location.origin + "/" + cutFront10}
         </Link>
-        <Link href={originalUrl} target="_blank" className=" ">
+        <Link href={originalUrl} target="_blank" className=" w-full ">
           {"Original: "}
           {originalUrl}
         </Link>
@@ -90,7 +90,7 @@ const Item = ({ cutFront10, originalUrl, array, setArray, _id }: Item) => {
 
       <button
         onClick={async () => await del(_id)}
-        className=" p-2 text-[#fa991c] hover:scale-125"
+        className=" p-2 text-[#fa991c] hover:scale-125 h-fit"
       >
         X
       </button>
